@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Solarized CSS -->
+    <style type="text/css">body{background-color:#fdf6e3}#markdown-body{box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px;font-family:'Source Sans Pro',sans-serif;font-size:110%;color:#43555a}h1,h2,h3,h4{color:#3e4d52}@media (max-width:767px){.markdown-body{padding:15px}}h2{padding-top:20px!important}a{color:#268bd2;text-decoration:none}a:hover{color:#78b9e6;text-decoration:none;text-shadow:none;border:none}.emph{font-style:italic}.mono{color:#000;font-family:'Source Code Pro',monospace}code,pre{color:#000;font-family:'Source Code Pro',monospace}pre{background:rgba(255,255,255,.12);box-shadow:0 0 10px rgba(0,0,0,.15);padding:10px;width:fit-content}img{background:rgba(255,255,255,.12);box-shadow:0 0 10px rgba(0,0,0,.15);padding:10px}.full{max-width:100%}.full-expanded{max-width:none}.katex{color:#000}.left{text-align:left}p,ul{text-align:justify}</style>
+    <!-- Plotly js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  </head>
+  <body class="container-fluid m-2 mb-5">
+    <h1 class="mt-4">Best restaurants</h1>
+    <div id="map_div">
+      <script>var plotlyJson = '{\"data\":[{\"customdata\":[[4.6,1632.0],[4.6,5733.0],[4.7,1576.0],[4.7,1087.0],[4.7,11867.0],[4.7,1022.0],[4.8,435.0],[4.8,481.0],[4.8,767.0],[4.8,2828.0],[4.8,551.0],[4.8,958.0],[4.8,585.0],[4.9,189.0],[4.9,188.0],[4.9,183.0],[4.9,146.0],[4.9,152.0],[4.9,152.0],[4.9,167.0],[4.9,167.0],[4.9,166.0],[4.9,161.0],[4.9,180.0],[4.9,174.0],[4.9,199.0],[4.9,205.0],[4.9,223.0],[4.9,229.0],[4.9,243.0],[4.9,263.0],[4.9,279.0],[4.9,363.0],[4.9,395.0],[4.9,197.0],[4.9,649.0],[4.9,888.0],[5.0,63.0],[5.0,153.0],[5.0,150.0],[5.0,50.0],[5.0,136.0],[5.0,105.0],[5.0,51.0],[5.0,134.0],[5.0,131.0],[5.0,73.0],[5.0,71.0],[5.0,51.0],[5.0,233.0]],\"hovertemplate\":\"%{hovertext}\",\"hovertext\":[\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJeZ7K_KLAyRIReM-z10NPqRg\u003e\u003cb\u003eLe Bouchon Proven\u00e7al\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.6\u003c\u002fb\u003e (1632) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJJS25Go7ByRIRoDhGctLOxdY\u003e\u003cb\u003eRodizio Brazil - Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.6\u003c\u002fb\u003e (5733) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJnXbzGh_ByRIROQixYBx22Mc\u003e\u003cb\u003eLunicco - Bourse\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.7\u003c\u002fb\u003e (1576)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJD66GqmfByRIRyE54uSR-al0\u003e\u003cb\u003ePizza Cosy\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.7\u003c\u002fb\u003e (1087) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJE3hE1GPByRIRZ8evK9diSbc\u003e\u003cb\u003eSplendido\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.7\u003c\u002fb\u003e (11867) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ0xJ0gsfAyRIRvoceTwMBLdc\u003e\u003cb\u003eRestaurant l\'Inattendu\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.7\u003c\u002fb\u003e (1022) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJc-ErGNbByRIRTEQyNz4zruw\u003e\u003cb\u003eOurea\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (435)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ18WXk8zByRIRD6WoReliwKw\u003e\u003cb\u003eLe Bistro Du Panier\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (481) \u00b7 \u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJOTMFVbjAyRIR2e1pxrsgUHc\u003e\u003cb\u003eKO-ISHI\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (767) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJFfKEASHByRIRi974minFDHo\u003e\u003cb\u003eDe\u00efa Coffee & Kitchen - Brunch Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (2828) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJF9KJJaXAyRIRuMRRPYsl4uI\u003e\u003cb\u003eChez Nous\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (551)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJSbsvN_rByRIR68_K4Ljdy5Y\u003e\u003cb\u003eBiba Brunch Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (958)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJyUuaVrrAyRIRUOOP1mTDjRg\u003e\u003cb\u003eO\'Bidul\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.8\u003c\u002fb\u003e (585) \u00b7 \u20ac\u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ8Uzic7zAyRIRAvNUhR1n4gY\u003e\u003cb\u003ePastels World\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (189)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJk8CjZmrByRIRPuO4WWsg1rY\u003e\u003cb\u003eKen bubble\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (188) \u00b7 \u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJc5zg4LjAyRIRFFzWrajpmcA\u003e\u003cb\u003eBrasserie L\'Op\u00e9ra\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (183)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJbdzLklTByRIRvOLGwow8VcE\u003e\u003cb\u003eGLACIER BIO Le Metropole Vieux Port\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (146)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJp4uOHrq_yRIRM45OSULuxlE\u003e\u003cb\u003eBlack Mamba\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (152)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJsZuJT5XByRIRZ30P1cTsjYU\u003e\u003cb\u003eBagnat\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (152)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJj-0gfpPByRIRhoExty0j3bM\u003e\u003cb\u003eLe Petit Chamarel\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (167)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJQdTL5bTByRIRiy6ThS5-lc8\u003e\u003cb\u003eLa Fresh Cantine - Pok\u00e9 Bowl, Salad\u2019Bar et Cevich\u00e9\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (167)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJJ7nmxjzByRIRUCj07X_E2vc\u003e\u003cb\u003eLa saveur, chez Nadia\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (166)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJn3We-S7HyRIRvYBt6alrKcU\u003e\u003cb\u003eHako+\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (161)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJP4OUVbrAyRIRiGOF5_vc6Xc\u003e\u003cb\u003eDelouss Pasta\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (180) \u00b7 \u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJdYrw8kzByRIRpo9RNTgjxFY\u003e\u003cb\u003eLe Panier \u00e0 Salade - Saladerie Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (174)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ-1chThXByRIR_n-BVJgQ6eQ\u003e\u003cb\u003ePita Pit Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (199)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJMch65zfByRIRBszGAxT3LEA\u003e\u003cb\u003eMoun\u00e9\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (205)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ8c7SbtzByRIRZfP1VTgQtsc\u003e\u003cb\u003eLe Zap (Chez Madjib )\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (223)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJRVS1mL3ByRIREK-e36Yyouo\u003e\u003cb\u003eTamaly local houmous dealer\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (229)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ05cLo5zByRIR3TG6pmUXGJg\u003e\u003cb\u003eAlivetu - Table M\u00e9diterran\u00e9enne\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (243)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJA260zZbByRIRftuZwwEuLMI\u003e\u003cb\u003eChicken chicken\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (263) \u00b7 \u20ac\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJa519D3rByRIRsiUPprJqSRE\u003e\u003cb\u003eRestaurant Quartier Libre\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (279)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJCSEiwsHAyRIRZZ8JTtiYUw0\u003e\u003cb\u003eChez Lucas\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (363)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJM5_0EK3AyRIRxDXBGi2P_xk\u003e\u003cb\u003eD\u00e9lices d\'Arm\u00e9nie - Restaurant Arm\u00e9nien Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (395)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJL2O0b8GjyRIR0b07SsckY-Y\u003e\u003cb\u003eCaf\u00e9 Lauca \u00ab La Boutchica \u00bb\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (197)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJHeK5JYrByRIRgbCySbuuxrI\u003e\u003cb\u003eDelices du port\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (649)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJuxYXliW_yRIRSBZDSjoq-Hk\u003e\u003cb\u003ePizza Baccara\u003c\u002fb\u003e \u00b7 \u003cb\u003e4.9\u003c\u002fb\u003e (888)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJW3R43gTByRIRA8vgz8y7k2U\u003e\u003cb\u003eDosBros Chicken\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (63)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJWxmAlrHByRIRILpEdYUofno\u003e\u003cb\u003eChez Gaya \\"Couleur Grenade\\"\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (153)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ_cUX_DnryxIROPwuBDfMn_o\u003e\u003cb\u003eLe Coin Ph\u00e9nicien\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (150)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJW-IiY5XByRIRkQenCXyOJMs\u003e\u003cb\u003eRestaurant-Epicerie fine. L\'enseigne 117.\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (50)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJaWwk98PAyRIRweJQAjV8c-Q\u003e\u003cb\u003eCoco Marseille\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (136)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJc4J6iRrByRIRENztnRqIC20\u003e\u003cb\u003eIl Boccone - Restaurant Italien\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (105)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJo0wY0ci4yRIRcsBaHyiu-fc\u003e\u003cb\u003eLe Papillologue\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (51)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJiYf9EvvByRIRi-P_Ql_3gVc\u003e\u003cb\u003eH\u00c9DON\u00c9 - Cave \u00e0 manger, \u00e9picerie fine\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (134)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJ7VjfHD7ByRIRfzGjcte8B_Q\u003e\u003cb\u003enibbles\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (131)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJt2vzoz3ByRIRJ4g8FEeuDQ0\u003e\u003cb\u003eDelici\'oz - Pizza, Focaccia, Panuozzo\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (73)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJY2ovSEfByRIRje8Z-AsRdTw\u003e\u003cb\u003eKin\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (71)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJR9lsw5zByRIRToav_frhvO8\u003e\u003cb\u003eLe Comptoir du Palais - Monsieur Poulet\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (51)\u003c\u002fa\u003e\",\"\u003ca href=https:\u002f\u002fwww.google.com\u002fmaps\u002fplace\u002f?q=place_id:ChIJq6r2sLvAyRIRz3_rpyIHfrU\u003e\u003cb\u003eSIMPLE hot dog\u003c\u002fb\u003e \u00b7 \u003cb\u003e5.0\u003c\u002fb\u003e (233)\u003c\u002fa\u003e\"],\"lat\":[43.2930771,43.2971672,43.297432,43.3039994,43.2976658,43.2921856,43.2905868,43.2969832,43.29252899999999,43.29395179999999,43.291782,43.2943876,43.2919566,43.2952034,43.2977161,43.2936262,43.29594540000001,43.3081498,43.2900105,43.29134619999999,43.2922705,43.29746919999999,43.2808654,43.292089,43.2994249,43.29414329999999,43.291702,43.29579710000001,43.2897627,43.29073,43.3016352,43.29356370000001,43.2991708,43.26947939999999,43.2916919,43.2938306,43.2888448,43.2932324,43.2979363,43.2913112,43.2909397,43.29599169999999,43.29205710000001,43.2703753,43.2935437,43.2979363,43.2816366,43.2938118,43.2900576,43.2916614],\"legendgroup\":\"\",\"lon\":[5.371461200000001,5.3735469,5.375961999999999,5.3675125,5.3732164,5.3729317,5.3733714,5.366580799999999,5.3756701,5.3761397,5.384173800000001,5.377505999999999,5.3807047,5.3798683,5.3717088,5.3754061,5.3749064,5.4364579,5.366600000000001,5.381977500000001,5.370663400000001,5.3785477,5.3687451,5.380836399999999,5.368864200000001,5.3762272,5.3740561,5.3817314,5.3796123,5.3670703,5.3762026,5.375134200000001,5.3690304,5.389372799999999,5.374795399999999,5.3748763,5.428970100000001,5.3819928,5.371255500000001,5.3691948,5.368740099999999,5.367564100000001,5.3749597,5.4197766,5.3753686,5.371255500000001,5.3815331,5.3784761,5.3759915,5.3753686],\"marker\":{\"color\":[0.2688474817750142,0.4943608926521305,0.4626189199239846,0.3429337403279837,0.6792927672420837,0.3183381276559924,0.2976184790069021,0.3500330748740422,0.541070070118729,0.767441470252442,0.4144493509177127,0.6050452883940224,0.4404749044005465,0.48527499642099925,0.48203681394926867,0.4652669541592182,0.30374091213894805,0.33524962972833783,0.33524962972833783,0.4043542277947308,0.4043542277947308,0.4001384183557726,0.3782571659438862,0.4547205936811718,0.43245908495903745,0.5156952893455777,0.5323727060107577,0.5763917463828315,0.58932797445261,0.6166850896657189,0.6500084479168522,0.6727294688775745,0.7550685259623015,0.776057264632927,0.5098840593835501,0.8630256163359228,0.8964185967268743,0.529139758579981,0.9284915416199004,0.9240347813082905,0.3189138392789236,0.9000930302815633,0.8182357330083134,0.3388764961178471,0.896179032760215,0.8900367687122696,0.6353413137941247,0.6169366057896837,0.3388764961178471,1.0],\"coloraxis\":\"coloraxis\"},\"mode\":\"markers\",\"name\":\"\",\"showlegend\":false,\"subplot\":\"mapbox\",\"type\":\"scattermapbox\"}],\"layout\":{\"template\":{\"data\":{\"histogram2dcontour\":[{\"type\":\"histogram2dcontour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"choropleth\":[{\"type\":\"choropleth\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"histogram2d\":[{\"type\":\"histogram2d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"heatmap\":[{\"type\":\"heatmap\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"heatmapgl\":[{\"type\":\"heatmapgl\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"contourcarpet\":[{\"type\":\"contourcarpet\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"contour\":[{\"type\":\"contour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"surface\":[{\"type\":\"surface\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"mesh3d\":[{\"type\":\"mesh3d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"scatter\":[{\"fillpattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2},\"type\":\"scatter\"}],\"parcoords\":[{\"type\":\"parcoords\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolargl\":[{\"type\":\"scatterpolargl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"bar\":[{\"error_x\":{\"color\":\"#2a3f5f\"},\"error_y\":{\"color\":\"#2a3f5f\"},\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"bar\"}],\"scattergeo\":[{\"type\":\"scattergeo\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolar\":[{\"type\":\"scatterpolar\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"histogram\":[{\"marker\":{\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"histogram\"}],\"scattergl\":[{\"type\":\"scattergl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatter3d\":[{\"type\":\"scatter3d\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermapbox\":[{\"type\":\"scattermapbox\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterternary\":[{\"type\":\"scatterternary\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattercarpet\":[{\"type\":\"scattercarpet\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"carpet\":[{\"aaxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"baxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"type\":\"carpet\"}],\"table\":[{\"cells\":{\"fill\":{\"color\":\"#EBF0F8\"},\"line\":{\"color\":\"white\"}},\"header\":{\"fill\":{\"color\":\"#C8D4E3\"},\"line\":{\"color\":\"white\"}},\"type\":\"table\"}],\"barpolar\":[{\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"barpolar\"}],\"pie\":[{\"automargin\":true,\"type\":\"pie\"}]},\"layout\":{\"autotypenumbers\":\"strict\",\"colorway\":[\"#636efa\",\"#EF553B\",\"#00cc96\",\"#ab63fa\",\"#FFA15A\",\"#19d3f3\",\"#FF6692\",\"#B6E880\",\"#FF97FF\",\"#FECB52\"],\"font\":{\"color\":\"#2a3f5f\"},\"hovermode\":\"closest\",\"hoverlabel\":{\"align\":\"left\"},\"paper_bgcolor\":\"white\",\"plot_bgcolor\":\"#E5ECF6\",\"polar\":{\"bgcolor\":\"#E5ECF6\",\"angularaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"radialaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"ternary\":{\"bgcolor\":\"#E5ECF6\",\"aaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"baxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"caxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"coloraxis\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"colorscale\":{\"sequential\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"sequentialminus\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"diverging\":[[0,\"#8e0152\"],[0.1,\"#c51b7d\"],[0.2,\"#de77ae\"],[0.3,\"#f1b6da\"],[0.4,\"#fde0ef\"],[0.5,\"#f7f7f7\"],[0.6,\"#e6f5d0\"],[0.7,\"#b8e186\"],[0.8,\"#7fbc41\"],[0.9,\"#4d9221\"],[1,\"#276419\"]]},\"xaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"yaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"scene\":{\"xaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"yaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"zaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2}},\"shapedefaults\":{\"line\":{\"color\":\"#2a3f5f\"}},\"annotationdefaults\":{\"arrowcolor\":\"#2a3f5f\",\"arrowhead\":0,\"arrowwidth\":1},\"geo\":{\"bgcolor\":\"white\",\"landcolor\":\"#E5ECF6\",\"subunitcolor\":\"white\",\"showland\":true,\"showlakes\":true,\"lakecolor\":\"white\"},\"title\":{\"x\":0.05},\"mapbox\":{\"style\":\"light\"}}},\"mapbox\":{\"domain\":{\"x\":[0.0,1.0],\"y\":[0.0,1.0]},\"center\":{\"lat\":43.292973266,\"lon\":5.378038302},\"accesstoken\":\"pk.eyJ1IjoibW9vc21pIiwiYSI6ImNqemZqMGs3NzBjanozZG81Y21ibjF5azkifQ.OE1VEwl4uV8_Qru-YqrLag\",\"zoom\":12,\"style\":\"mapbox:\u002f\u002fstyles\u002fmapbox\u002fdark-v10\"},\"coloraxis\":{\"colorbar\":{\"title\":{\"text\":\"color\"}},\"colorscale\":[[0.0,\"rgb(255,255,204)\"],[0.125,\"rgb(255,237,160)\"],[0.25,\"rgb(254,217,118)\"],[0.375,\"rgb(254,178,76)\"],[0.5,\"rgb(253,141,60)\"],[0.625,\"rgb(252,78,42)\"],[0.75,\"rgb(227,26,28)\"],[0.875,\"rgb(189,0,38)\"],[1.0,\"rgb(128,0,38)\"]]},\"legend\":{\"tracegroupgap\":0},\"margin\":{\"t\":0,\"l\":0,\"r\":0,\"b\":0},\"autosize\":true}}'; var figure = JSON.parse(plotlyJson); var plotDiv = document.getElementById('map_div'); Plotly.newPlot(plotDiv, figure.data, figure.layout, {responsive: true});</script>
+    </div>
+    <h2 class="mt-4">Sorted by rating</h2>
+    <div class="contrainer-fluid">
+      <h3 class="mt-4">Top 1000</h3>
+      <script>$(document).ready( function () { $("#id_10f78-9ab4-4f80-a9d3-b2921272c84b").DataTable({ "iDisplayLength": 100, "order": [] }); } );</script>
+      <table border="1" class="dataframe" id="id_10f78-9ab4-4f80-a9d3-b2921272c84b">
+        <thead>
+          <tr style="text-align: right;">
+            <th></th>
+            <th>name</th>
+            <th>rating</th>
+            <th>user_ratings_total</th>
+            <th>vicinity</th>
+            <th>price_level</th>
+            <th>types</th>
+            <th>score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>SIMPLE hot dog</td>
+            <td>5.0</td>
+            <td>233</td>
+            <td>19 Rue Breteuil, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.915987</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>Chez Gaya "Couleur Grenade"</td>
+            <td>5.0</td>
+            <td>153</td>
+            <td>36 Grand Rue, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.862790</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>Le Coin Phénicien</td>
+            <td>5.0</td>
+            <td>150</td>
+            <td>12 Rue de la Croix, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.859475</td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td>Coco Marseille</td>
+            <td>5.0</td>
+            <td>136</td>
+            <td>138 Quai du Port, Marseille</td>
+            <td>NA</td>
+            <td>[travel_agency, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.841664</td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td>Pizza Baccara</td>
+            <td>4.9</td>
+            <td>888</td>
+            <td>38 Avenue Jean Lombard, Marseille</td>
+            <td>NA</td>
+            <td>[meal_delivery, meal_takeaway, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.838931</td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td>HÉDONÉ - Cave à manger, épicerie fine</td>
+            <td>5.0</td>
+            <td>134</td>
+            <td>6 Rue Corneille, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, bar, store, food, point_of_interest, establishment]</td>
+            <td>5.838752</td>
+          </tr>
+          <tr>
+            <th>10</th>
+            <td>nibbles</td>
+            <td>5.0</td>
+            <td>131</td>
+            <td>36 Grand Rue, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.834183</td>
+          </tr>
+          <tr>
+            <th>12</th>
+            <td>Delices du port</td>
+            <td>4.9</td>
+            <td>649</td>
+            <td>10 Rue Glandeves, Marseille</td>
+            <td>NA</td>
+            <td>[bakery, store, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.814089</td>
+          </tr>
+          <tr>
+            <th>17</th>
+            <td>Il Boccone - Restaurant Italien</td>
+            <td>5.0</td>
+            <td>105</td>
+            <td>14 Rue Breteuil, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.780769</td>
+          </tr>
+          <tr>
+            <th>23</th>
+            <td>Délices d'Arménie - Restaurant Arménien Marseille</td>
+            <td>4.9</td>
+            <td>395</td>
+            <td>38 Rue Negresko, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.749392</td>
+          </tr>
+          <tr>
+            <th>25</th>
+            <td>Deïa Coffee &amp; Kitchen - Brunch Marseille</td>
+            <td>4.8</td>
+            <td>2828</td>
+            <td>5 Rue Saint-Saëns, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.742982</td>
+          </tr>
+          <tr>
+            <th>28</th>
+            <td>Chez Lucas</td>
+            <td>4.9</td>
+            <td>363</td>
+            <td>56 Rue des Moulins, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.733778</td>
+          </tr>
+          <tr>
+            <th>41</th>
+            <td>Splendido</td>
+            <td>4.7</td>
+            <td>11867</td>
+            <td>16-18 Rue de la République, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.677407</td>
+          </tr>
+          <tr>
+            <th>46</th>
+            <td>Restaurant Quartier Libre</td>
+            <td>4.9</td>
+            <td>279</td>
+            <td>13 Rue Glandeves, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.672525</td>
+          </tr>
+          <tr>
+            <th>49</th>
+            <td>Chicken chicken</td>
+            <td>4.9</td>
+            <td>263</td>
+            <td>14rue bernard du bois, 14 Rue Bernard du Bois, Marseille</td>
+            <td>1.0</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.655622</td>
+          </tr>
+          <tr>
+            <th>57</th>
+            <td>Delici'oz - Pizza, Focaccia, Panuozzo</td>
+            <td>5.0</td>
+            <td>73</td>
+            <td>4 Rue d'Israël, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.644711</td>
+          </tr>
+          <tr>
+            <th>66</th>
+            <td>Kin</td>
+            <td>5.0</td>
+            <td>71</td>
+            <td>10 Rue Francis Davso, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.631019</td>
+          </tr>
+          <tr>
+            <th>67</th>
+            <td>Alivetu - Table Méditerranéenne</td>
+            <td>4.9</td>
+            <td>243</td>
+            <td>145 Rue Sainte, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.630832</td>
+          </tr>
+          <tr>
+            <th>70</th>
+            <td>Biba Brunch Marseille</td>
+            <td>4.8</td>
+            <td>958</td>
+            <td>4 Bis Rue du Jeune Anacharsis, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.622173</td>
+          </tr>
+          <tr>
+            <th>74</th>
+            <td>Tamaly local houmous dealer</td>
+            <td>4.9</td>
+            <td>229</td>
+            <td>4 Rue Edmond Rostand, Marseille</td>
+            <td>NA</td>
+            <td>[meal_delivery, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.610481</td>
+          </tr>
+          <tr>
+            <th>78</th>
+            <td>Le Zap (Chez Madjib )</td>
+            <td>4.9</td>
+            <td>223</td>
+            <td>4 Cours Julien, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.600857</td>
+          </tr>
+          <tr>
+            <th>93</th>
+            <td>KO-ISHI</td>
+            <td>4.8</td>
+            <td>767</td>
+            <td>25 Rue Sainte, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.574581</td>
+          </tr>
+          <tr>
+            <th>97</th>
+            <td>Mouné</td>
+            <td>4.9</td>
+            <td>205</td>
+            <td>30 Rue Fortia, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.568111</td>
+          </tr>
+          <tr>
+            <th>98</th>
+            <td>DosBros Chicken</td>
+            <td>5.0</td>
+            <td>63</td>
+            <td>1 Rue Fongate, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.565706</td>
+          </tr>
+          <tr>
+            <th>105</th>
+            <td>Pita Pit Marseille</td>
+            <td>4.9</td>
+            <td>199</td>
+            <td>2 Rue Saint-Saëns, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.555704</td>
+          </tr>
+          <tr>
+            <th>106</th>
+            <td>Café Lauca « La Boutchica »</td>
+            <td>4.9</td>
+            <td>197</td>
+            <td>68 Rue Grignan, Marseille</td>
+            <td>NA</td>
+            <td>[cafe, restaurant, food, point_of_interest, store, establishment]</td>
+            <td>5.551381</td>
+          </tr>
+          <tr>
+            <th>115</th>
+            <td>Rodizio Brazil - Marseille</td>
+            <td>4.6</td>
+            <td>5733</td>
+            <td>14 Rue de la République, Marseille</td>
+            <td>2.0</td>
+            <td>[meal_delivery, bar, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.539833</td>
+          </tr>
+          <tr>
+            <th>119</th>
+            <td>Pastels World</td>
+            <td>4.9</td>
+            <td>189</td>
+            <td>29 Rue d'Aubagne, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.533074</td>
+          </tr>
+          <tr>
+            <th>121</th>
+            <td>Ken bubble</td>
+            <td>4.9</td>
+            <td>188</td>
+            <td>25 Grand Rue, Marseille</td>
+            <td>1.0</td>
+            <td>[cafe, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.530665</td>
+          </tr>
+          <tr>
+            <th>134</th>
+            <td>Brasserie L'Opéra</td>
+            <td>4.9</td>
+            <td>183</td>
+            <td>4 Rue Corneille, Marseille</td>
+            <td>NA</td>
+            <td>[cafe, bar, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.518190</td>
+          </tr>
+          <tr>
+            <th>135</th>
+            <td>Lunicco - Bourse</td>
+            <td>4.7</td>
+            <td>1576</td>
+            <td>Centre Commercial Bourse, 17 Cours Belsunce Niveau 0, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.516220</td>
+          </tr>
+          <tr>
+            <th>138</th>
+            <td>Delouss Pasta</td>
+            <td>4.9</td>
+            <td>180</td>
+            <td>5 Rue Balthazar-Dieudé, Marseille</td>
+            <td>1.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.510344</td>
+          </tr>
+          <tr>
+            <th>143</th>
+            <td>O'Bidul</td>
+            <td>4.8</td>
+            <td>585</td>
+            <td>79 Rue de la Palud, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.499747</td>
+          </tr>
+          <tr>
+            <th>146</th>
+            <td>Le Panier à Salade - Saladerie Marseille</td>
+            <td>4.9</td>
+            <td>174</td>
+            <td>5 Rue des Mauvestis, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, meal_takeaway, food, point_of_interest, establishment]</td>
+            <td>5.493784</td>
+          </tr>
+          <tr>
+            <th>154</th>
+            <td>Chez Nous</td>
+            <td>4.8</td>
+            <td>551</td>
+            <td>22 Place Notre Dame du Mont, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.480386</td>
+          </tr>
+          <tr>
+            <th>159</th>
+            <td>Le Petit Chamarel</td>
+            <td>4.9</td>
+            <td>167</td>
+            <td>16 Rue Lafon, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.472876</td>
+          </tr>
+          <tr>
+            <th>160</th>
+            <td>La Fresh Cantine - Poké Bowl, Salad’Bar et Ceviché</td>
+            <td>4.9</td>
+            <td>167</td>
+            <td>7 Rue Neuve Sainte-Catherine, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.472876</td>
+          </tr>
+          <tr>
+            <th>164</th>
+            <td>La saveur, chez Nadia</td>
+            <td>4.9</td>
+            <td>166</td>
+            <td>17 Rue Poids de la Farine, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.469740</td>
+          </tr>
+          <tr>
+            <th>176</th>
+            <td>Hako+</td>
+            <td>4.9</td>
+            <td>161</td>
+            <td>218 Chemin du Roucas Blanc, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, point_of_interest, food, establishment]</td>
+            <td>5.453462</td>
+          </tr>
+          <tr>
+            <th>188</th>
+            <td>Le Bistro Du Panier</td>
+            <td>4.8</td>
+            <td>481</td>
+            <td>58 Rue Caisserie, Marseille</td>
+            <td>1.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.432466</td>
+          </tr>
+          <tr>
+            <th>192</th>
+            <td>Pizza Cosy</td>
+            <td>4.7</td>
+            <td>1087</td>
+            <td>101 Rue de la République, Marseille</td>
+            <td>2.0</td>
+            <td>[meal_delivery, meal_takeaway, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.427184</td>
+          </tr>
+          <tr>
+            <th>194</th>
+            <td>Le Papillologue</td>
+            <td>5.0</td>
+            <td>51</td>
+            <td>225 Boulevard Paul Claudel, Marseille</td>
+            <td>NA</td>
+            <td>[meal_takeaway, restaurant, food, point_of_interest, store, establishment]</td>
+            <td>5.424166</td>
+          </tr>
+          <tr>
+            <th>196</th>
+            <td>Le Comptoir du Palais - Monsieur Poulet</td>
+            <td>5.0</td>
+            <td>51</td>
+            <td>55 Rue Breteuil, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.424166</td>
+          </tr>
+          <tr>
+            <th>200</th>
+            <td>Bagnat</td>
+            <td>4.9</td>
+            <td>152</td>
+            <td>124 Boulevard de la Corderie, Marseille</td>
+            <td>NA</td>
+            <td>[store, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.421468</td>
+          </tr>
+          <tr>
+            <th>201</th>
+            <td>Black Mamba</td>
+            <td>4.9</td>
+            <td>152</td>
+            <td>4 Avenue de la Figone, Marseille</td>
+            <td>NA</td>
+            <td>[bar, restaurant, food, point_of_interest, establishment]</td>
+            <td>5.421468</td>
+          </tr>
+          <tr>
+            <th>209</th>
+            <td>Restaurant-Epicerie fine. L'enseigne 117.</td>
+            <td>5.0</td>
+            <td>50</td>
+            <td>117 Rue Sainte, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, cafe, grocery_or_supermarket, food, store, point_of_interest, establishment]</td>
+            <td>5.409315</td>
+          </tr>
+          <tr>
+            <th>210</th>
+            <td>Restaurant l'Inattendu</td>
+            <td>4.7</td>
+            <td>1022</td>
+            <td>Cours d'Estienne d'Orves, 35 Rue de la Paix Marcel Paul, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.408887</td>
+          </tr>
+          <tr>
+            <th>218</th>
+            <td>GLACIER BIO Le Metropole Vieux Port</td>
+            <td>4.9</td>
+            <td>146</td>
+            <td>2 Place Gabriel Péri, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.398028</td>
+          </tr>
+          <tr>
+            <th>225</th>
+            <td>Ourea</td>
+            <td>4.8</td>
+            <td>435</td>
+            <td>72 Rue de la Paix Marcel Paul, Marseille</td>
+            <td>NA</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.393474</td>
+          </tr>
+          <tr>
+            <th>245</th>
+            <td>Le Bouchon Provençal</td>
+            <td>4.6</td>
+            <td>1632</td>
+            <td>6 Place aux Huiles, Marseille</td>
+            <td>2.0</td>
+            <td>[restaurant, food, point_of_interest, establishment]</td>
+            <td>5.372070</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
